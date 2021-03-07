@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lotto">
+        <activity android:name=".RandomActivity"></activity>
+        <activity android:name=".NameActivity" />
+        <activity android:name=".ConstellActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -14,7 +14,7 @@
 
     <!--Result 화면 -->
     <color name="colorPrimaryResult">#2196F3</color>
-    <color name="colorPrimaryDarkResult">#19176D2</color>
+    <color name="colorPrimaryDarkResult">#1976D2</color>
     <color name="colorAccentResult">#FF4081</color>
 
     <!-- 별자리 화면 -->

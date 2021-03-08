@@ -7,4 +7,28 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--Result 화면 -->
+    <color name="colorPrimaryResult">#2196F3</color>
+    <color name="colorPrimaryDarkResult">#19176D2</color>
+    <color name="colorAccentResult">#FF4081</color>
+
+    <!-- 별자리 화면 -->
+    <color name="colorPrimaryConstell">#673AB7</color>
+    <color name="colorPrimaryDarkConstell">#512DA8</color>
+    <color name="colorAccentConstell">#7E57C2</color>
+    <color name="colorContentConstell">#556080</color>
+    <color name="colorButtonConstell">#673AB7</color>
+
+    <!-- 이름입력 화면 -->
+    <color name="colorPrimaryName">#F9A11F</color>
+    <color name="colorPrimaryDarkName">#EF6C00</color>
+    <color name="colorAccentName">#FFC107</color>
+    <color name="colorContentName">#fcd837</color>
+    <color name="colorButtonName">#F9A11F</color>
+
 </resources>

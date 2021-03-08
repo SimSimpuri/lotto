@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         rand.setOnClickListener {
-            startActivity(Intent(this@MainActivity, RandomActivity::class.java))
+            startActivity(Intent(this@MainActivity, ResultActivity::class.java))
         }
         constell.setOnClickListener{
             startActivity(Intent(this@MainActivity, ConstellActivity::class.java))

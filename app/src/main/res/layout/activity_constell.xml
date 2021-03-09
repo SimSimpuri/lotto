@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
-        ></DatePicker>
+        android:scrollbarSize="10dp"></DatePicker>
 
     <ImageView
         android:id="@+id/imageView1"

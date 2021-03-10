@@ -3,7 +3,10 @@ package com.example.lotto
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import kotlinx.android.synthetic.main.activity_result.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ResultActivity : AppCompatActivity() {
 
@@ -13,16 +16,37 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        //인텐트 받아오기
         val result = intent.getIntegerArrayListExtra("result")
+        val name = intent.getStringExtra("name")
+        val constell = intent.getStringExtra("constell")
 
 
+
+        //기본 텍스트뷰
+        resultLable.text = "랜덤으로 생성된\n로또번호입니다"
+
+
+        //이름이 전달된 경우
+        if(!TextUtils.isEmpty(name)){
+            resultLable.text = "${name}님의\n${SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA).format(Date())}\n로또번호입니다"
+        }else if(!TextUtils.isEmpty(constell)){
+            resultLable.text = "${constell}의\n로또번호입니다"
+        }
+
+        //전달받은 결과가 있을 경우에만 실행
         result?.let {
             updateLottoBallImage(result.sortedBy{it})
         }
 
+        //저장 버튼 클릭시
         storeBt.setOnClickListener {
 
+            startActivity(Intent(this, MainActivity::class.java))
+        }
 
+        //메인으로 버튼 클릭시
+        backBt2.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
 

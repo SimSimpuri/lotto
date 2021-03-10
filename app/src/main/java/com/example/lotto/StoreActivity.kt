@@ -10,14 +10,7 @@ class StoreActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store)
 
-        storeBt.setOnClickListener {
 
-
-
-
-
-            startActivity(Intent(this, MainActivity::class.java))
-        }
 
     }
 }

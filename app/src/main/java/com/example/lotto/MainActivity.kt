@@ -1,6 +1,7 @@
 package com.example.lotto
 
 import android.content.Intent
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         //로또번호를 저장할 SQLite DB 생성
         dbHelper = DBHelper(this, "newDB", null, 1)
         table = dbHelper.writableDatabase
+
+
+
 
         //랜덤으로 생성 클릭시
         rand.setOnClickListener {

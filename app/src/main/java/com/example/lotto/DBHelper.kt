@@ -13,7 +13,7 @@ class DBHelper(
 
             override fun onCreate(db: SQLiteDatabase){
                 var sql : String = "create table if not exists lotto_table (" +
-                        "id Integer primary key autoincrement," +
+                        "id Integer primary key autoincrement," + "date txt not null"
                         "n1 Integer not null, n2 Integer not null, n3 Integer not null, n4 Integer not null,"+
                         "n5 Integer not null, n6 Integer not null);"
                 db.execSQL(sql)

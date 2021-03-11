@@ -8,25 +8,30 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-class ListAdapter (val context: Context, val dogList: ArrayList<Number>) : BaseAdapter() {
+//리스트 어뎁터, LOttoNum 타입의 배열리스트를 받음
+class ListAdapter (val context: Context, val List: ArrayList<LottoNum>) : BaseAdapter() {
+
+    val lottoImageStartId2 = R.drawable.ball_01
+
     override fun getCount(): Int {
-        TODO("Not yet implemented")
+        return List.size
     }
 
     override fun getItem(position: Int): Any {
-        TODO("Not yet implemented")
+        return List[position]
     }
 
     override fun getItemId(position: Int): Long {
-        TODO("Not yet implemented")
+        return 0
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?) : View {
-        var id=1
+
         val view: View = LayoutInflater.from(context).inflate(R.layout.activity_list_item, null)
 
 
         val id_txt = view.findViewById<TextView>(R.id.idtxt)
+        val date_text = view.findViewById<TextView>(R.id.datetv)
         val no1 = view.findViewById<ImageView>(R.id.imageView01)
         val no2 = view.findViewById<ImageView>(R.id.imageView02)
         val no3 = view.findViewById<ImageView>(R.id.imageView03)
@@ -34,11 +39,17 @@ class ListAdapter (val context: Context, val dogList: ArrayList<Number>) : BaseA
         val no5 = view.findViewById<ImageView>(R.id.imageView05)
         val no6 = view.findViewById<ImageView>(R.id.imageView06)
 
-        id_txt.text = Integer.toString(id)
+        var ln : LottoNum = List[position]
 
+        id_txt.text = "${ln.id}"
 
-        no1.setImageResource(R.drawable.ball_01)
-        id = id + 1
+        no1.setImageResource(lottoImageStartId2 + ln.n1-1)
+        no2.setImageResource(lottoImageStartId2 + ln.n2-1)
+        no3.setImageResource(lottoImageStartId2 + ln.n3-1)
+        no4.setImageResource(lottoImageStartId2 + ln.n4-1)
+        no5.setImageResource(lottoImageStartId2 + ln.n5-1)
+        no6.setImageResource(lottoImageStartId2 + ln.n6-1)
+
 
 
         return view

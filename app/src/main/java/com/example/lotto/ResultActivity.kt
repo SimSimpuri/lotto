@@ -1,6 +1,8 @@
 package com.example.lotto
 
+import android.content.ContentValues
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,6 +11,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ResultActivity : AppCompatActivity() {
+
+    lateinit var dbHelper : DBHelper
+    lateinit var table : SQLiteDatabase
 
     val lottoImageStartId = R.drawable.ball_01
 
@@ -22,6 +27,17 @@ class ResultActivity : AppCompatActivity() {
         val constell = intent.getStringExtra("constell")
 
 
+        var NumArr = IntArray(6)
+
+
+        //전달받은 결과가 있을 경우에만 실행
+        result?.let {
+            updateLottoBallImage(result.sortedBy{it})
+            for(i in 0..5){
+            NumArr[i] = result[i]
+            }
+        }
+
 
         //기본 텍스트뷰
         resultLable.text = "랜덤으로 생성된\n로또번호입니다"
@@ -34,13 +50,26 @@ class ResultActivity : AppCompatActivity() {
             resultLable.text = "${constell}의\n로또번호입니다"
         }
 
-        //전달받은 결과가 있을 경우에만 실행
-        result?.let {
-            updateLottoBallImage(result.sortedBy{it})
-        }
+
 
         //저장 버튼 클릭시
         storeBt.setOnClickListener {
+
+            //로또번호를 저장할 SQLite DB 생성
+            dbHelper = DBHelper(this, "newDB", null, 1)
+            table = dbHelper.writableDatabase
+
+            var contentValues = ContentValues()
+
+            contentValues.put("date", SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(Date()))
+            for(i in 0..5){
+                contentValues.put("n${i+1}", NumArr[i])
+            }
+
+
+            table.insert("lotto_table",null, contentValues)
+
+
 
             startActivity(Intent(this, MainActivity::class.java))
         }

@@ -42,6 +42,7 @@ class ListAdapter (val context: Context, val List: ArrayList<LottoNum>) : BaseAd
         var ln : LottoNum = List[position]
 
         id_txt.text = "${ln.id}"
+        date_text.text = "${ln.date}"
 
         no1.setImageResource(lottoImageStartId2 + ln.n1-1)
         no2.setImageResource(lottoImageStartId2 + ln.n2-1)

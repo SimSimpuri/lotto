@@ -61,7 +61,7 @@ class ResultActivity : AppCompatActivity() {
 
             var contentValues = ContentValues()
 
-            contentValues.put("date", SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(Date()))
+            contentValues.put("day", SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(Date()))
             for(i in 0..5){
                 contentValues.put("n${i+1}", NumArr[i])
             }
